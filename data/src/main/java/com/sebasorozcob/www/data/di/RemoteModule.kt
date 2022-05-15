@@ -1,14 +1,16 @@
 package com.sebasorozcob.www.data.di
 
 import com.sebasorozcob.www.data.remote.api.MovietailApi
+import com.sebasorozcob.www.data.repository.MoviesRepositoryImpl
 import com.sebasorozcob.www.domain.common.Constants.BASE_URL
+import com.sebasorozcob.www.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -21,7 +23,7 @@ object RemoteModule {
     fun provideMovietailApi(): MovietailApi {
         return Retrofit.Builder()
             .baseUrl(BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(MovietailApi::class.java)
     }
@@ -33,5 +35,11 @@ object RemoteModule {
             .readTimeout(15, TimeUnit.SECONDS)
             .connectTimeout(15, TimeUnit.SECONDS)
             .build()
+    }
+
+    @Provides
+    @Singleton
+    fun provideMoviesRepository(api: MovietailApi): MoviesRepository {
+        return MoviesRepositoryImpl(api)
     }
 }

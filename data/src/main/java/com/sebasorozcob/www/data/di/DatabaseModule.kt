@@ -15,13 +15,13 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object DatabaseModule {
 
-    @Provides
-    @Singleton
-    fun provideMoviesDatabase(app: Application) : MovietailDatabase {
-        return Room.databaseBuilder(
-            app,
-            MovietailDatabase::class.java,
-            DATABASE_NAME
-        ).build()
-    }
+//    @Provides
+//    @Singleton
+//    fun provideMoviesDatabase(app: Application) : MovietailDatabase {
+//        return Room.databaseBuilder(
+//            app,
+//            MovietailDatabase::class.java,
+//            DATABASE_NAME
+//        ).build()
+//    }
 }

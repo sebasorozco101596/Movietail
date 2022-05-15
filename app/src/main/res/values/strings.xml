@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Movietail</string>
+    <string name="movie_image">Movie Image</string>
+    <string name="language">Language:</string>
+    <string name="vote_average">Vote average:</string>
 </resources>
