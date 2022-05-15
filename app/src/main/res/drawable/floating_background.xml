@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="oval">
+            <gradient
+                android:type="linear"
+                android:angle="45"
+                android:startColor="#6D6D6D"
+                android:centerColor="@color/white"
+                android:endColor="#6D6D6D" />
+            <size
+                android:width="56dp"
+                android:height="56dp" />
+
+            <stroke
+                android:width="0.5dp"
+                android:color="@color/purple_700"/>
+        </shape>
+
+    </item>
+
+    <item
+        android:drawable="@drawable/ic_movies"
+        android:width="32dp"
+        android:height="32dp"
+        android:gravity="center"
+        />
+</layer-list>

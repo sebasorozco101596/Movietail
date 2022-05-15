@@ -10,4 +10,6 @@
     <color name="yellow">#FFEB3B</color>
     <color name="red">#F44336</color>
     <color name="grey">#565656</color>
+    <color name="transparent">#00565656</color>
+    <color name="semi_transparent">#E4FFFFFF</color>
 </resources>

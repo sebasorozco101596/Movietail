@@ -3,4 +3,9 @@
     <string name="movie_image">Movie Image</string>
     <string name="language">Language:</string>
     <string name="vote_average">Vote average:</string>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="account">Account</string>
+    <string name="logout">Logout</string>
+    <string name="buttom_for_to_see_the_different_kind_of_movies">Buttom for to see the different kind of movies</string>
 </resources>

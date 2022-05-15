@@ -22,6 +22,9 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        binding.bottomNavView.background = null
+        binding.bottomNavView.menu.getItem(2).isEnabled = false
+
         viewModel.state.observe(this) {
             if (!it.isLoading) {
                 binding.progressBar.visibility = View.INVISIBLE
