@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/movitail_nav"
+    app:startDestination="@id/moviesFragment">
+
+    <fragment
+        android:id="@+id/moviesFragment"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragment"
+        android:label="MoviesFragment" >
+        <action
+            android:id="@+id/action_moviesFragment_to_recipesBottomSheet"
+            app:destination="@id/moviesBottomSheet" />
+    </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.configuration.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
+    <fragment
+        android:id="@+id/infoFragment"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.info.InfoFragment"
+        android:label="fragment_info"
+        tools:layout="@layout/fragment_info" />
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" />
+    <dialog
+        android:id="@+id/moviesBottomSheet"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.movies.bottomsheet.MoviesBottomSheet"
+        android:label="RecipesBottomSheet" >
+        <action
+            android:id="@+id/action_recipesBottomSheet_to_moviesFragment"
+            app:destination="@id/moviesFragment"
+            app:popUpTo="@id/moviesFragment"
+            app:popUpToInclusive="true"/>
+    </dialog>
+</navigation>

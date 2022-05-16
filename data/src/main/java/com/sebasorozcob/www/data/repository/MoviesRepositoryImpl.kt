@@ -14,4 +14,8 @@ class MoviesRepositoryImpl @Inject constructor(
         return api.getMovies(4).body()!!.toMovies()
     }
 
+    override suspend fun searchMovies(query: String): Movies {
+        return api.searchMovies(query).body()!!.toMovies()
+    }
+
 }

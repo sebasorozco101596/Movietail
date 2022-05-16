@@ -10,16 +10,17 @@ import retrofit2.http.QueryMap
 
 interface MovietailApi {
 
-    //https://api.themoviedb.org/3/discover/movie?api_key=5669628df72e3478c3edcd2e56e9dc8f&
-    // language=en-US&sort_by=popularity.desc&include_adult=false&
-    // &page=1&with_watch_monetization_types=flatrate
     @GET("discover/movie?api_key=5669628df72e3478c3edcd2e56e9dc8f&language=en-US" +
             "&sort_by=popularity.desc&include_adult=false" +
             "&with_watch_monetization_types=flatrate")
-    // &page=1
-    //@QueryMap queries: Map<String, String>
     suspend fun getMovies(
         @Query("page") page: Int
+    ): Response<MoviesDto>
+
+    @GET("search/movie?api_key=5669628df72e3478c3edcd2e56e9dc8f&language=en-US" +
+            "&page=1&include_adult=false")
+    suspend fun searchMovies(
+       @Query("query") query: String
     ): Response<MoviesDto>
 
     // https://api.themoviedb.org/3/movie/675353?api_key=5669628df72e3478c3edcd2e56e9dc8f&language=en-US

@@ -23,4 +23,10 @@
 
     <dimen name="fab_size">54dp</dimen>
     <dimen name="fab_elevation">15dp</dimen>
+
+    <style name="CustomChipStyle" parent="Widget.MaterialComponents.Chip.Filter">
+        <item name="chipBackgroundColor">@color/chipBackgroundColor</item>
+        <item name="android:textColor">@color/chipTextColor</item>
+        <item name="checkedIconTint">@color/chipTextColor</item>
+    </style>
 </resources>

@@ -8,4 +8,14 @@
     <string name="account">Account</string>
     <string name="logout">Logout</string>
     <string name="buttom_for_to_see_the_different_kind_of_movies">Buttom for to see the different kind of movies</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="information">Information</string>
+    <string name="overview_information">You will see the trending movies that are outside in the cinema. You also will see the different actors and all the information about your favorite movies.</string>
+    <string name="instructions_information">You will see this button in your home. With this button you can change the kind of trending movies. </string>
+    <string name="instructions">Instructions</string>
+    <string name="copyright">Copyright ®</string>
+    <string name="api">Api:</string>
+    <string name="api_information">https://www.themoviedb.org/</string>
+    <string name="developer">Juan S Orozco Buitrago</string>
 </resources>
