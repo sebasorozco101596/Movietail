@@ -4,32 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.MainActivity"
-    android:background="@drawable/movie_background">
+    tools:context=".view.activities.MainActivity">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/navHostFragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        android:orientation="vertical"
-        android:visibility="invisible"
-        android:layout_gravity="center"/>
-
-    <ProgressBar
-        android:id="@+id/progressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"/>
-
-    <TextView
-        android:id="@+id/errorText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:visibility="invisible"
-        android:layout_gravity="center"/>
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        android:layout_gravity="center"
+        app:navGraph="@navigation/movitail_nav" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_appBar"
@@ -42,7 +27,7 @@
         app:fabCradleRoundedCornerRadius="40dp"
         app:fabCradleMargin="10dp"
         app:hideOnScroll="true"
-        android:backgroundTint="@color/semi_transparent"
+        android:backgroundTint="#EC000000"
         >
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -55,16 +40,5 @@
             app:itemTextColor="@color/bottom_item_background" />
 
     </com.google.android.material.bottomappbar.BottomAppBar>
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_movies"
-        style="@style/GradientFabRed"
-        app:maxImageSize="30dp"
-        android:foreground="@drawable/floating_background"
-        android:backgroundTint="@color/semi_transparent"
-        app:layout_anchor="@id/bottom_appBar"
-        android:contentDescription="@string/buttom_for_to_see_the_different_kind_of_movies" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

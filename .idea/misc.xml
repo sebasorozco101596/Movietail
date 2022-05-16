@@ -7,8 +7,15 @@
         <entry key="app/src/main/res/drawable/floating_background.xml" value="0.305" />
         <entry key="app/src/main/res/drawable/movie_background.xml" value="0.488" />
         <entry key="app/src/main/res/drawable/movie_cardview_background.xml" value="0.49" />
+        <entry key="app/src/main/res/font/courgette.xml" value="0.4388888888888889" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
+        <entry key="app/src/main/res/layout/fragment_info.xml" value="0.4683223517486062" />
+        <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.4583333333333333" />
+        <entry key="app/src/main/res/layout/movies_bottom_sheet.xml" value="0.23795435333896872" />
         <entry key="app/src/main/res/layout/movies_row.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/placeholder_row_layout.xml" value="0.4791666666666667" />
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.4791666666666667" />
       </map>
     </option>

@@ -60,7 +60,7 @@
                     android:id="@+id/movieName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:fontFamily="sans-serif-black"
+                    android:fontFamily="@font/courgette"
                     android:gravity="center"
                     android:maxLines="2"
                     android:padding="10dp"
@@ -74,7 +74,6 @@
                     android:layout_height="1dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="10dp"
-
                     android:background="@color/purple_700" />
 
                 <TextView
@@ -86,7 +85,7 @@
                     android:padding="10dp"
                     android:textColor="@color/black"
                     android:textSize="10sp"
-                    android:textStyle="normal"
+                    android:textStyle="italic"
                     tools:text="Sonic 2" />
 
                 <com.google.android.material.divider.MaterialDivider
