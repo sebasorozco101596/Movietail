@@ -22,7 +22,12 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
     class MoviesViewHolder(private val binding: MoviesRowBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
-            val imageURL = IMAGE_BASE_URL + movie.mainImage
+            val imageURL = if (movie.mainImage != null) {
+                IMAGE_BASE_URL + movie.mainImage
+            } else {
+                IMAGE_BASE_URL + movie.mainImage
+            }
+
             val releaseDate = "Release date: " + movie.releaseDate
             val voteAverage = " " + movie.voteAverage.toString()
             val originalLanguage = " " + movie.originalLanguage

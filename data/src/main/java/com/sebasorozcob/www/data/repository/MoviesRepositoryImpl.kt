@@ -11,11 +11,15 @@ class MoviesRepositoryImpl @Inject constructor(
 ): MoviesRepository {
 
     override suspend fun getMovies(): Movies {
-        return api.getMovies(4).body()!!.toMovies()
+        return api.getMovies(1).body()!!.toMovies()
     }
 
     override suspend fun searchMovies(query: String): Movies {
-        return api.searchMovies(query).body()!!.toMovies()
+        return if (query.isNotBlank()) {
+            api.searchMovies(query).body()!!.toMovies()
+        } else {
+            api.getMovies(1).body()!!.toMovies()
+        }
     }
 
 }

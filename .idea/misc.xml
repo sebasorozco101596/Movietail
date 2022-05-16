@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.4683223517486062" />
         <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_search_movies.xml" value="0.48125" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/movies_bottom_sheet.xml" value="0.23795435333896872" />
         <entry key="app/src/main/res/layout/movies_row.xml" value="0.5" />

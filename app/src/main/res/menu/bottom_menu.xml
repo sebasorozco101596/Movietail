@@ -14,6 +14,11 @@
         app:showAsAction="ifRoom"
         android:icon="@drawable/ic_home"/>
 
+    <item android:id="@+id/searchMoviesFragment"
+        android:title="@string/search"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ic_search"/>
+
     <item android:id="@+id/settingsFragment"
         android:title="@string/settings"
         app:showAsAction="ifRoom"

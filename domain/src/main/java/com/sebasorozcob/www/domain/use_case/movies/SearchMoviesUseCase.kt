@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.domain.use_case
+package com.sebasorozcob.www.domain.use_case.movies
 
 import com.sebasorozcob.www.domain.common.Resource
 import com.sebasorozcob.www.domain.model.Movies
@@ -8,14 +8,13 @@ import kotlinx.coroutines.flow.flow
 import java.io.IOException
 import javax.inject.Inject
 
-class GetMoviesUseCase @Inject constructor(
+class SearchMoviesUseCase @Inject constructor(
     private val repository: MoviesRepository
 ){
-
-    operator fun invoke(): Flow<Resource<Movies>> = flow {
+    operator fun invoke(query: String): Flow<Resource<Movies>> = flow {
         try {
             emit(Resource.Loading())
-            val movies = repository.getMovies()
+            val movies = repository.searchMovies(query)
             emit(Resource.Success(movies))
         } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach server. Check your internet connection!"))
