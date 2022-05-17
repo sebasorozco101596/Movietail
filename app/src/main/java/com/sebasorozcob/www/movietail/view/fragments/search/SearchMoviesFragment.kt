@@ -1,12 +1,11 @@
 package com.sebasorozcob.www.movietail.view.fragments.search
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebasorozcob.www.movietail.adapter.MoviesAdapter
@@ -60,7 +59,7 @@ class SearchMoviesFragment : Fragment() {
                 } else {
                     hideShimmerEffect()
                     binding.moviesRecyclerView.visibility = View.VISIBLE
-                    //Log.d("HEREE","" + it.movies?.results!!)
+                    //Log.d("HERE","" + it.movies?.results!!)
                     it.movies?.let { movies -> moviesAdapter.setData(movies) }
                     //moviesAdapter = MoviesAdapter(this, it.movies?.results!!)
                     //binding.recyclerView.adapter = moviesAdapter

@@ -1,7 +1,5 @@
 package com.sebasorozcob.www.movietail.adapter
 
-import android.content.Context
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
@@ -13,8 +11,6 @@ import com.sebasorozcob.www.domain.model.Movies
 import com.sebasorozcob.www.movietail.R
 import com.sebasorozcob.www.movietail.databinding.MoviesRowBinding
 import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
-import kotlinx.coroutines.NonDisposableHandle.parent
-import java.util.*
 
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 

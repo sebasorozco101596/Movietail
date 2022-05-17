@@ -1,4 +1,4 @@
-package com.sebasorozcob.www.data.remote.extensions
+package com.sebasorozcob.www.data.mapper
 
 import com.sebasorozcob.www.data.remote.dto.MovieDto
 import com.sebasorozcob.www.data.remote.dto.MoviesDto

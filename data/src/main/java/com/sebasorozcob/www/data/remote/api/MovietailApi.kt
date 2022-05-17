@@ -1,12 +1,12 @@
 package com.sebasorozcob.www.data.remote.api
 
+import com.sebasorozcob.www.data.remote.dto.CreditsDto
 import com.sebasorozcob.www.data.remote.dto.MovieDto
 import com.sebasorozcob.www.data.remote.dto.MoviesDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
-import retrofit2.http.QueryMap
 
 interface MovietailApi {
 
@@ -28,4 +28,9 @@ interface MovietailApi {
     suspend fun getMovieDetail(
         @Path("id") movieID: String
     ): Response<MovieDto>
+
+    @GET("movie/{movie_id}/credits?api_key=5669628df72e3478c3edcd2e56e9dc8f&language=en-US")
+    suspend fun getCredits(
+        @Path("movie_id") movieID: String
+    ): Response<CreditsDto>
 }
