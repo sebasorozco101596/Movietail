@@ -38,4 +38,9 @@
             app:popUpTo="@id/moviesFragment"
             app:popUpToInclusive="true"/>
     </dialog>
+    <fragment
+        android:id="@+id/searchMoviesFragment"
+        android:name="com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragment"
+        android:label="fragment_search_movies"
+        tools:layout="@layout/fragment_search_movies" />
 </navigation>

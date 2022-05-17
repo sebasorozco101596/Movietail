@@ -12,6 +12,7 @@
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.4683223517486062" />
         <entry key="app/src/main/res/layout/fragment_movies.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/fragment_search_movies.xml" value="0.48125" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/movies_bottom_sheet.xml" value="0.23795435333896872" />
         <entry key="app/src/main/res/layout/movies_row.xml" value="0.5" />
@@ -19,6 +20,11 @@
         <entry key="app/src/main/res/menu/bottom_menu.xml" value="0.4791666666666667" />
       </map>
     </option>
+  </component>
+  <component name="EntryPointsManager">
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="retrofit2.http.GET" />
+    </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />

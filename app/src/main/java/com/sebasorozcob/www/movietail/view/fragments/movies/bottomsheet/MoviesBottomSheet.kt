@@ -9,7 +9,6 @@ import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.chip.Chip
 import com.google.android.material.chip.ChipGroup
 import com.sebasorozcob.www.movietail.databinding.MoviesBottomSheetBinding
-import java.util.*
 
 private const val TAG = "RecipesBottomSheet"
 
@@ -84,36 +83,24 @@ class MoviesBottomSheet : BottomSheetDialogFragment() {
 //                dietTypeChipId
 //            )
 
-            if (anyChange) {
-                anyChange= false
-//                val action =
-//                    RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(
-//                        backFromBottomSheet = true
-//                    )
-//                findNavController().navigate(action)
+            anyChange = if (anyChange) {
+                false
+        //                val action =
+        //                    RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(
+        //                        backFromBottomSheet = true
+        //                    )
+        //                findNavController().navigate(action)
             } else {
-                anyChange = false
-//                val action =
-//                    RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(
-//                        backFromBottomSheet = false
-//                    )
-//                findNavController().navigate(action)
+                false
+        //                val action =
+        //                    RecipesBottomSheetDirections.actionRecipesBottomSheetToRecipesFragment(
+        //                        backFromBottomSheet = false
+        //                    )
+        //                findNavController().navigate(action)
             }
         }
 
         return binding.root
-    }
-
-    private fun updateChip(chipId: Int, chipGroup: ChipGroup) {
-        if (chipId != 0) {
-            try {
-                val targetView = chipGroup.findViewById<Chip>(chipId)
-                targetView.isChecked = true
-                chipGroup.requestChildFocus(targetView, targetView)
-            } catch (e: Exception) {
-                Log.d(TAG, e.message.toString())
-            }
-        }
     }
 
     override fun onDestroyView() {

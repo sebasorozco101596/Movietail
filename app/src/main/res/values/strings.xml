@@ -18,4 +18,6 @@
     <string name="api">Api:</string>
     <string name="api_information">https://www.themoviedb.org/</string>
     <string name="developer">Juan S Orozco Buitrago</string>
+    <string name="search">Search</string>
+    <string name="results">Results</string>
 </resources>
