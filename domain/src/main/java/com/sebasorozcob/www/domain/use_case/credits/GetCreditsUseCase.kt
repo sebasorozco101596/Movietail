@@ -11,7 +11,7 @@ import javax.inject.Inject
 class GetCreditsUseCase @Inject constructor(
     private val repository: CreditsRepository
 ){
-    operator fun invoke(movieId: String) : Flow<Resource<Credits>> = flow {
+    operator fun invoke(movieId: Int) : Flow<Resource<Credits>> = flow {
         try {
             emit(Resource.Loading())
             val credits = repository.getCredits(movieId)

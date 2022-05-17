@@ -6,7 +6,7 @@ data class Credit(
     val id: Int,
     val knownDepartment: String,
     val name: String,
-    val popularity: Int,
+    val popularity: Double,
     val profilePhoto: String,
     val castId: Int,
     val character: String,

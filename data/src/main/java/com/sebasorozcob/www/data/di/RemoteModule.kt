@@ -1,8 +1,10 @@
 package com.sebasorozcob.www.data.di
 
 import com.sebasorozcob.www.data.remote.api.MovietailApi
+import com.sebasorozcob.www.data.repository.CreditsRepositoryImpl
 import com.sebasorozcob.www.data.repository.MoviesRepositoryImpl
 import com.sebasorozcob.www.domain.common.Constants.BASE_URL
+import com.sebasorozcob.www.domain.repository.CreditsRepository
 import com.sebasorozcob.www.domain.repository.MoviesRepository
 import dagger.Module
 import dagger.Provides
@@ -41,5 +43,11 @@ object RemoteModule {
     @Singleton
     fun provideMoviesRepository(api: MovietailApi): MoviesRepository {
         return MoviesRepositoryImpl(api)
+    }
+
+    @Provides
+    @Singleton
+    fun provideCreditsRepository(api: MovietailApi): CreditsRepository {
+        return CreditsRepositoryImpl(api)
     }
 }

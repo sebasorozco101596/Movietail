@@ -10,7 +10,7 @@ class CreditsRepositoryImpl @Inject constructor(
     private val api: MovietailApi
 ): CreditsRepository {
 
-    override suspend fun getCredits(movieId: String): Credits {
+    override suspend fun getCredits(movieId: Int): Credits {
         return api.getCredits(movieId).body()!!.toCredits()
     }
 

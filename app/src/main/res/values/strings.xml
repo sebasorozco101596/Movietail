@@ -20,4 +20,10 @@
     <string name="developer">Juan S Orozco Buitrago</string>
     <string name="search">Search</string>
     <string name="results">Results</string>
+    <string name="casting">Casting</string>
+    <string name="movie_poster">Movie poster</string>
+    <string name="_7_5">7.5</string>
+    <string name="en">en</string>
+    <string name="action">Action</string>
+    <string name="genres">Genres</string>
 </resources>

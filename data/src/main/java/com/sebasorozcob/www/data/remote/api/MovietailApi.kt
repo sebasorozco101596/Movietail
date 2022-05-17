@@ -31,6 +31,6 @@ interface MovietailApi {
 
     @GET("movie/{movie_id}/credits?api_key=5669628df72e3478c3edcd2e56e9dc8f&language=en-US")
     suspend fun getCredits(
-        @Path("movie_id") movieID: String
+        @Path("movie_id") movieID: Int
     ): Response<CreditsDto>
 }

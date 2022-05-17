@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.sebasorozcob.www.movietail">
 
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:name=".Application"
@@ -16,6 +16,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Movietail"
         tools:targetApi="31">
+        <activity
+            android:name=".view.activities.CreditsActivity"
+            android:exported="false"
+            android:label="Details"/>
         <activity
             android:name=".view.activities.MainActivity"
             android:exported="true">

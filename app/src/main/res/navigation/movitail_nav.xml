@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_moviesFragment_to_recipesBottomSheet"
             app:destination="@id/moviesBottomSheet" />
+        <action
+            android:id="@+id/action_moviesFragment_to_creditsActivity"
+            app:destination="@id/creditsActivity" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
@@ -42,5 +45,19 @@
         android:id="@+id/searchMoviesFragment"
         android:name="com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragment"
         android:label="fragment_search_movies"
-        tools:layout="@layout/fragment_search_movies" />
+        tools:layout="@layout/fragment_search_movies" >
+        <action
+            android:id="@+id/action_searchMoviesFragment_to_creditsActivity"
+            app:destination="@id/creditsActivity" />
+    </fragment>
+    <activity
+        android:id="@+id/creditsActivity"
+        android:name="com.sebasorozcob.www.movietail.view.activities.CreditsActivity"
+        android:label="Credits"
+        tools:layout="@layout/activity_credits">
+        <argument
+            android:name="movie"
+            app:argType="com.sebasorozcob.www.domain.model.Movie" />
+    </activity>
+
 </navigation>

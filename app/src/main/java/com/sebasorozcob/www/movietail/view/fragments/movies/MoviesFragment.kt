@@ -12,11 +12,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebasorozcob.www.movietail.R
 import com.sebasorozcob.www.movietail.adapter.MoviesAdapter
 import com.sebasorozcob.www.movietail.databinding.FragmentMoviesBinding
+import com.sebasorozcob.www.movietail.viewmodel.CreditsViewModel
 import com.sebasorozcob.www.movietail.viewmodel.MainViewModel
 
 class MoviesFragment : Fragment() {
 
     private val mainViewModel: MainViewModel by activityViewModels()
+    //private val creditsViewModel: CreditsViewModel by activityViewModels()
     private val moviesAdapter by lazy { MoviesAdapter() }
 
     private var _binding: FragmentMoviesBinding? = null
@@ -36,7 +38,6 @@ class MoviesFragment : Fragment() {
         binding.moviesFloating.setOnClickListener {
             findNavController().navigate(R.id.action_moviesFragment_to_recipesBottomSheet)
         }
-
         return binding.root
     }
 

@@ -2,6 +2,8 @@ package com.sebasorozcob.www.movietail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -11,6 +13,9 @@ import com.sebasorozcob.www.domain.model.Movies
 import com.sebasorozcob.www.movietail.R
 import com.sebasorozcob.www.movietail.databinding.MoviesRowBinding
 import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
+import com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragmentDirections
+import com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragmentDirections
+import java.lang.Exception
 
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
@@ -38,6 +43,23 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
             binding.movieOverview.text = movie.overview
             binding.movieVoteAverage.text = voteAverage
             binding.movieOriginalLanguage.text = originalLanguage
+            binding.movieCardView.setOnClickListener {
+                //Toast.makeText(itemView.context,"touching" + movie.title,Toast.LENGTH_LONG).show()
+
+                try {
+                    val action = MoviesFragmentDirections.actionMoviesFragmentToCreditsActivity(movie)
+                    it.findNavController()
+                        .navigate(action)
+                } catch (e: Exception) {
+                    it.findNavController()
+                        .navigate(R.id.action_searchMoviesFragment_to_creditsActivity)
+
+                    val action = SearchMoviesFragmentDirections.actionSearchMoviesFragmentToCreditsActivity(movie)
+                    it.findNavController()
+                        .navigate(action)
+                }
+
+            }
         }
 
         companion object {

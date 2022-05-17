@@ -1,5 +1,7 @@
 package com.sebasorozcob.www.movietail.viewmodel
 
+import android.util.Log
+import android.util.LogPrinter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -21,11 +23,12 @@ class CreditsViewModel @Inject constructor(
     private val _state = MutableLiveData<CreditsListState>()
     val state: LiveData<CreditsListState> = _state
 
-    fun getCredits(movieId: String) {
+    fun getCredits(movieId: Int) {
         creditsUseCase(movieId).onEach { result ->
             when (result) {
                 is Resource.Success -> {
                     _state.value = CreditsListState(credits = result.data)
+                    Log.println(Log.ASSERT,"here",result.data.toString())
                 }
                 is Resource.Error -> {
                     _state.value = CreditsListState(error = result.message ?: "An unexpected error occurred!")
