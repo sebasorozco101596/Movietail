@@ -7,5 +7,5 @@ import kotlinx.parcelize.RawValue
 @Parcelize
 data class Credits(
     val id: Int,
-    val cast: @RawValue ArrayList<Credit>
+    val cast: @RawValue List<Credit>
 ): Parcelable

@@ -1,60 +1,84 @@
 package com.sebasorozcob.www.movietail.view.fragments.credits
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.sebasorozcob.www.domain.common.Constants
+import com.sebasorozcob.www.domain.model.Movie
 import com.sebasorozcob.www.movietail.R
+import com.sebasorozcob.www.movietail.adapter.CreditsAdapter
+import com.sebasorozcob.www.movietail.databinding.FragmentCreditsBinding
+import com.sebasorozcob.www.movietail.viewmodel.CreditsViewModel
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CreditsFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CreditsFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private val creditsViewModel: CreditsViewModel by activityViewModels()
+    private val creditsAdapter by lazy { CreditsAdapter() }
+
+    private var _binding: FragmentCreditsBinding? = null
+    private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_credits, container, false)
+    ): View {
+        _binding = FragmentCreditsBinding.inflate(inflater,container,false)
+        setupRecyclerView()
+
+        val args = arguments
+        val myBundle: Movie = args!!.getParcelable<Movie>(Constants.MOVIE_RESULT_KEY) as Movie
+
+        lifecycleScope.launchWhenStarted {
+            searchApiData(myBundle.id)
+        }
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CreditsFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CreditsFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    private fun searchApiData(movieID: Int) {
+        showShimmerEffect()
+        creditsViewModel.getCredits(movieID)
+        creditsViewModel.state.observe(viewLifecycleOwner) {
+            if (!it.isLoading) {
+                hideShimmerEffect()
+                if (it.error.isNotBlank()) {
+                    hideShimmerEffect()
+                } else {
+                    hideShimmerEffect()
+                    binding.creditsRecyclerView.visibility = View.VISIBLE
+                    Log.d("HERE","" + it.credits.toString())
+                    it.credits?.let { credits -> creditsAdapter.setData(credits) }
                 }
             }
+        }
     }
+
+    private fun setupRecyclerView() {
+        binding.creditsRecyclerView.adapter = creditsAdapter
+        binding.creditsRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        showShimmerEffect()
+    }
+
+    private fun showShimmerEffect() {
+        binding.shimmerFrameLayout.startShimmer()
+        binding.creditsRecyclerView.visibility = View.GONE
+    }
+
+    private fun hideShimmerEffect() {
+        binding.shimmerFrameLayout.stopShimmer()
+        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.creditsRecyclerView.visibility = View.VISIBLE
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
 }

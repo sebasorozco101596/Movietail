@@ -5,5 +5,5 @@ import com.sebasorozcob.www.domain.model.Credit
 
 data class CreditsDto(
     @SerializedName("id") val id: Int,
-    @SerializedName("cast") val cast: ArrayList<Credit>
+    @SerializedName("cast") val cast: ArrayList<CreditDto>
 )

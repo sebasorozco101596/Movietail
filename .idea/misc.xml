@@ -10,6 +10,7 @@
         <entry key="app/src/main/res/font/courgette.xml" value="0.4388888888888889" />
         <entry key="app/src/main/res/layout/activity_credits.xml" value="0.48125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/credits_row.xml" value="0.4791666666666667" />
         <entry key="app/src/main/res/layout/fragment_account.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/fragment_credits.xml" value="0.4583333333333333" />
         <entry key="app/src/main/res/layout/fragment_info.xml" value="0.4683223517486062" />

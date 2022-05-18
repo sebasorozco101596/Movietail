@@ -6,7 +6,7 @@ import com.sebasorozcob.www.domain.model.Credit
 import com.sebasorozcob.www.domain.model.Credits
 
 fun CreditsDto.toCredits(): Credits {
-    return Credits(id, cast)
+    return Credits(id, cast.map { it.toCredit() })
     //return Credits(page, results.map { it.toMovie() } , totalPages,totalResults)
 }
 
