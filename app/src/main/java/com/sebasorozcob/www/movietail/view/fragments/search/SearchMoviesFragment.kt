@@ -7,10 +7,14 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.sebasorozcob.www.movietail.adapter.MoviesAdapter
 import com.sebasorozcob.www.movietail.databinding.FragmentSearchMoviesBinding
 import com.sebasorozcob.www.movietail.viewmodel.SearchMoviesViewModel
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 
 class SearchMoviesFragment : Fragment() {
 
@@ -29,7 +33,12 @@ class SearchMoviesFragment : Fragment() {
         //binding.lifecycleOwner = this
         setupRecyclerView()
 
-        hideShimmerEffect()
+        //hideShimmerEffect()
+
+        lifecycleScope.launchWhenStarted {
+            delay(1500)
+            searchApiData("")
+        }
 
         binding.searchViewMovies.setOnQueryTextListener(object: SearchView.OnQueryTextListener {
 
@@ -39,10 +48,15 @@ class SearchMoviesFragment : Fragment() {
             }
 
             override fun onQueryTextChange(newText: String?): Boolean {
-                newText?.let { query -> searchApiData(query) }
+                showShimmerEffect()
+                lifecycleScope.launch {
+                    delay(1000)
+                    newText?.let {
+                            query -> searchApiData(query)
+                    }
+                }
                 return true
             }
-
         })
 
         return binding.root
@@ -60,7 +74,7 @@ class SearchMoviesFragment : Fragment() {
                     hideShimmerEffect()
                     binding.moviesRecyclerView.visibility = View.VISIBLE
                     //Log.d("HERE","" + it.movies?.results!!)
-                    it.movies?.let { movies -> moviesAdapter.setData(movies) }
+                    it.movies?.let { movies -> moviesAdapter.setData(movies.results) }
                     //moviesAdapter = MoviesAdapter(this, it.movies?.results!!)
                     //binding.recyclerView.adapter = moviesAdapter
                 }
@@ -70,11 +84,12 @@ class SearchMoviesFragment : Fragment() {
 
     private fun setupRecyclerView() {
         binding.moviesRecyclerView.adapter = moviesAdapter
-        binding.moviesRecyclerView.layoutManager = LinearLayoutManager(requireContext())
+        binding.moviesRecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
         showShimmerEffect()
     }
 
     private fun showShimmerEffect() {
+        binding.shimmerFrameLayout.visibility = View.VISIBLE
         binding.shimmerFrameLayout.startShimmer()
         binding.moviesRecyclerView.visibility = View.GONE
     }

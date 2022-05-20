@@ -29,16 +29,42 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:layout_gravity="center">
 
-            <include layout="@layout/placeholder_row_layout" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="24dp"
+                android:orientation="vertical">
 
-            <include layout="@layout/placeholder_row_layout" />
+                <include layout="@layout/placeholder_row_layout" />
 
-            <include layout="@layout/placeholder_row_layout" />
+                <include layout="@layout/placeholder_row_layout" />
 
-            <include layout="@layout/placeholder_row_layout" />
+                <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="24dp"
+                android:orientation="vertical">
+
+                <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+            </LinearLayout>
+
         </LinearLayout>
+
 
     </com.facebook.shimmer.ShimmerFrameLayout>
 

@@ -3,11 +3,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:startColor="@color/grey"
-        android:centerColor="@color/transparent"
-        android:endColor="@color/grey"
+        android:startColor="#393700B3"
+        android:centerColor="@color/black"
+        android:endColor="#353700B3"
         android:type="linear"
         android:useLevel="true"
         android:angle="135"/>
+
+    <corners android:radius="5dp"/>
+
+    <stroke android:color="#EFEDED"
+        android:width="1dp"/>
 
 </shape>

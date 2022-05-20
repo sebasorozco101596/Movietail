@@ -12,10 +12,10 @@ class GetMoviesUseCase @Inject constructor(
     private val repository: MoviesRepository
 ){
 
-    operator fun invoke(): Flow<Resource<Movies>> = flow {
+    operator fun invoke(page: Int): Flow<Resource<Movies>> = flow {
         try {
             emit(Resource.Loading())
-            val movies = repository.getMovies()
+            val movies = repository.getMovies(page)
             emit(Resource.Success(movies))
         } catch (e: IOException) {
             emit(Resource.Error("Couldn't reach server. Check your internet connection!"))

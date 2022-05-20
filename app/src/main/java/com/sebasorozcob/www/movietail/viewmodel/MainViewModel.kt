@@ -1,5 +1,6 @@
 package com.sebasorozcob.www.movietail.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,14 +21,19 @@ class MainViewModel @Inject constructor(
     private val _state = MutableLiveData<MoviesListState>()
     val state: LiveData<MoviesListState> = _state
 
+    private val _page = MutableLiveData<Int>()
+
     init {
-        getMovies()
+        _page.value = 1
+        //getMovies()
     }
 
-    private fun getMovies() {
-        getMoviesUseCase().onEach { result ->
+    fun getMovies() {
+
+        getMoviesUseCase(_page.value!!).onEach { result ->
             when (result) {
                 is Resource.Success -> {
+                    //Log.println(Log.ASSERT,"DATA",result.data?.results.toString())
                     _state.value = MoviesListState(movies = result.data)
                 }
                 is Resource.Error -> {
@@ -38,6 +44,14 @@ class MainViewModel @Inject constructor(
                 }
             }
         }.launchIn(viewModelScope)
+    }
+
+    fun moveRight() {
+        _page.value = _page.value?.plus(1)
+    }
+
+    fun restartPage() {
+        _page.value = 1
     }
 
 }

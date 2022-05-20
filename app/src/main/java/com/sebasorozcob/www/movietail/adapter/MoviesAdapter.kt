@@ -2,7 +2,6 @@ package com.sebasorozcob.www.movietail.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -15,7 +14,6 @@ import com.sebasorozcob.www.movietail.databinding.MoviesRowBinding
 import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
 import com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragmentDirections
 import com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragmentDirections
-import java.lang.Exception
 
 class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
@@ -40,7 +38,7 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
             binding.movieReleaseDate.text = releaseDate
             binding.movieName.text = movie.title
-            binding.movieOverview.text = movie.overview
+            //binding.movieOverview.text = movie.overview
             binding.movieVoteAverage.text = voteAverage
             binding.movieOriginalLanguage.text = originalLanguage
             binding.movieCardView.setOnClickListener {
@@ -82,10 +80,10 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
     override fun getItemCount(): Int = moviesList.size
 
-    fun setData(newData: Movies) {
-        val recipesDiffUtil = MoviesDiffUtil(moviesList, newData.results)
+    fun setData(newData: List<Movie>) {
+        val recipesDiffUtil = MoviesDiffUtil(moviesList, newData)
         val diffUtilResult = DiffUtil.calculateDiff(recipesDiffUtil)
-        moviesList = newData.results
+        moviesList = newData
         diffUtilResult.dispatchUpdatesTo(this)
     }
 }

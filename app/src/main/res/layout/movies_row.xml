@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     >
 
@@ -12,21 +11,22 @@
         android:id="@+id/movieCardView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="8dp"
         android:layout_weight="2"
+        app:cardBackgroundColor="#E4F8F8F8"
         app:cardCornerRadius="8dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
         app:cardElevation="5dp"
         app:cardUseCompatPadding="true"
-        app:cardBackgroundColor="#E4F8F8F8">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/movie_cardview_background"
-            android:baselineAligned="false"
-            android:orientation="horizontal"
-            android:padding="8dp"
+            android:orientation="vertical"
+            android:paddingHorizontal="8dp"
             android:weightSum="10">
 
             <ImageView
@@ -35,23 +35,22 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:contentDescription="@string/movie_image"
-                android:paddingTop="8dp"
-                android:paddingBottom="8dp"
-
+                android:padding="16dp"
+                android:scaleType="fitXY"
                 android:src="@drawable/ic_movie" />
 
             <LinearLayout
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="9"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingBottom="16dp">
 
                 <TextView
                     android:id="@+id/movieReleaseDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:gravity="start"
+                    android:gravity="center"
                     android:textColor="@color/black"
                     android:textSize="11sp"
                     android:textStyle="bold|italic"
@@ -61,14 +60,15 @@
                     android:id="@+id/movieName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="4dp"
                     android:fontFamily="@font/courgette"
                     android:gravity="center"
-                    android:maxLines="2"
-                    android:padding="10dp"
+                    android:maxLines="1"
+                    android:paddingHorizontal="4dp"
                     android:textColor="@color/purple_700"
-                    android:textSize="15sp"
+                    android:textSize="14sp"
                     android:textStyle="bold|normal"
-                    tools:text="Sonic 2" />
+                    tools:text="Sonic the Hedgehog Of the last empire" />
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
@@ -77,94 +77,41 @@
                     android:layout_marginEnd="10dp"
                     android:background="@color/purple_700" />
 
-                <TextView
-                    android:id="@+id/movieOverview"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:maxLines="3"
-                    android:padding="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="11sp"
-                    android:textStyle="italic"
-                    tools:text="Sonic 2" />
-
-                <com.google.android.material.divider.MaterialDivider
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:background="@color/purple_700" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
                     android:orientation="horizontal">
 
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/movieVoteAverage"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="1dp">
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:textColor="@color/purple_700"
+                        android:textSize="12sp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintStart_toStartOf="parent"
+                        tools:text="7.5" />
 
-                        <TextView
-                            android:id="@+id/movieTextVoteAverage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@string/vote_average"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:id="@+id/movieVoteAverage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:textColor="@color/purple_700"
-                            android:textSize="12sp"
-                            android:textStyle="bold|italic"
-                            tools:text="7.5" />
-                    </LinearLayout>
-
-                    <LinearLayout
+                    <TextView
+                        android:id="@+id/movieOriginalLanguage"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:padding="1dp">
-
-                        <TextView
-                            android:id="@+id/movieTextOriginalLanguage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:paddingStart="5dp"
-                            android:paddingEnd="5dp"
-                            android:text="@string/language"
-                            android:textColor="@color/black"
-                            android:textSize="13sp" />
-
-                        <TextView
-                            android:id="@+id/movieOriginalLanguage"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:textAllCaps="true"
-                            android:textColor="@color/purple_700"
-                            android:textSize="12sp"
-                            android:textStyle="bold|italic"
-                            tools:text="EN" />
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="16dp"
+                        android:layout_weight="1"
+                        android:textAllCaps="true"
+                        android:textColor="@color/purple_700"
+                        android:textSize="12sp"
+                        android:textStyle="bold|italic"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        tools:text="EN" />
 
 
-                    </LinearLayout>
-
-
-                </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
