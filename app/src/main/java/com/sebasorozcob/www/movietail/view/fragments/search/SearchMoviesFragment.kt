@@ -1,6 +1,7 @@
 package com.sebasorozcob.www.movietail.view.fragments.search
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -59,12 +60,6 @@ class SearchMoviesFragment : Fragment() {
             }
         })
 
-        return binding.root
-    }
-
-    private fun searchApiData(query: String) {
-        showShimmerEffect()
-        searchMoviesViewModel.searchMovies(query)
         searchMoviesViewModel.state.observe(viewLifecycleOwner) {
             if (!it.isLoading) {
                 hideShimmerEffect()
@@ -80,23 +75,30 @@ class SearchMoviesFragment : Fragment() {
                 }
             }
         }
+
+        return binding.root
+    }
+
+    private fun searchApiData(query: String) {
+        showShimmerEffect()
+        searchMoviesViewModel.searchMovies(query)
     }
 
     private fun setupRecyclerView() {
         binding.moviesRecyclerView.adapter = moviesAdapter
-        binding.moviesRecyclerView.layoutManager = GridLayoutManager(requireContext(),2)
+        binding.moviesRecyclerView.layoutManager = GridLayoutManager(requireContext(),3)
         showShimmerEffect()
     }
 
     private fun showShimmerEffect() {
-        binding.shimmerFrameLayout.visibility = View.VISIBLE
-        binding.shimmerFrameLayout.startShimmer()
+        binding.shimmerTrendingMovies.visibility = View.VISIBLE
+        binding.shimmerTrendingMovies.startShimmer()
         binding.moviesRecyclerView.visibility = View.GONE
     }
 
     private fun hideShimmerEffect() {
-        binding.shimmerFrameLayout.stopShimmer()
-        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.shimmerTrendingMovies.stopShimmer()
+        binding.shimmerTrendingMovies.visibility = View.GONE
         binding.moviesRecyclerView.visibility = View.VISIBLE
     }
 

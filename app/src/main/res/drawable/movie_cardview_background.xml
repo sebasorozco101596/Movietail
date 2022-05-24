@@ -3,15 +3,17 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <gradient
-        android:startColor="#911C064F"
-        android:centerColor="#E5E0EB"
-        android:endColor="#891C064F"
+        android:startColor="#47000000"
+        android:centerColor="#FFFFFF"
+        android:endColor="#47000000"
         android:angle="315"/>
 
-    <corners android:radius="6dp"/>
+    <corners android:radius="5dp"/>
 
     <stroke
-        android:color="@color/purple_700"
-        android:width="2dp"/>
+        android:color="@color/grey"
+        android:width="1dp"/>
+
+    <padding android:bottom="12dp"/>
 
 </shape>

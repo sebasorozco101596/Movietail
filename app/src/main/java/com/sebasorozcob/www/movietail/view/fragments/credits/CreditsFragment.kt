@@ -66,13 +66,13 @@ class CreditsFragment : Fragment() {
     }
 
     private fun showShimmerEffect() {
-        binding.shimmerFrameLayout.startShimmer()
+        binding.shimmerTrendingMovies.startShimmer()
         binding.creditsRecyclerView.visibility = View.GONE
     }
 
     private fun hideShimmerEffect() {
-        binding.shimmerFrameLayout.stopShimmer()
-        binding.shimmerFrameLayout.visibility = View.GONE
+        binding.shimmerTrendingMovies.stopShimmer()
+        binding.shimmerTrendingMovies.visibility = View.GONE
         binding.creditsRecyclerView.visibility = View.VISIBLE
     }
 

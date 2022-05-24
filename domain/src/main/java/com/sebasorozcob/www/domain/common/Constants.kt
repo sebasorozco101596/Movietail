@@ -9,4 +9,8 @@ object Constants {
     //const val DATABASE_NAME = "movietail_database"
 
     const val MOVIE_RESULT_KEY = "movieBundle"
+
+    enum class Recyclers{
+        POPULAR,NOW_CINE
+    }
 }

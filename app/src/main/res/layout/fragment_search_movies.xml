@@ -18,7 +18,7 @@
         app:queryHint="Movie's Name"/>
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+        android:id="@+id/shimmerTrendingMovies"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,7 +35,7 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="24dp"
+                android:layout_marginHorizontal="8dp"
                 android:orientation="vertical">
 
                 <include layout="@layout/placeholder_row_layout" />
@@ -44,14 +44,14 @@
 
                 <include layout="@layout/placeholder_row_layout" />
 
-                <include layout="@layout/placeholder_row_layout" />
             </LinearLayout>
 
 
+
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_marginHorizontal="24dp"
+                android:layout_marginHorizontal="8dp"
                 android:orientation="vertical">
 
                 <include layout="@layout/placeholder_row_layout" />
@@ -60,7 +60,20 @@
 
                 <include layout="@layout/placeholder_row_layout" />
 
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginHorizontal="8dp"
+                android:orientation="vertical">
+
                 <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+
+                <include layout="@layout/placeholder_row_layout" />
+
             </LinearLayout>
 
         </LinearLayout>

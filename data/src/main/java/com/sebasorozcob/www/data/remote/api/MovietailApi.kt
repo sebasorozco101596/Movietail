@@ -3,6 +3,7 @@ package com.sebasorozcob.www.data.remote.api
 import com.sebasorozcob.www.data.remote.dto.CreditsDto
 import com.sebasorozcob.www.data.remote.dto.MovieDto
 import com.sebasorozcob.www.data.remote.dto.MoviesDto
+import com.sebasorozcob.www.data.remote.dto.NowPlayingMoviesDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -33,4 +34,11 @@ interface MovietailApi {
     suspend fun getCredits(
         @Path("movie_id") movieID: Int
     ): Response<CreditsDto>
+
+    @GET("https://api.themoviedb.org/3/movie/now_playing?api_key=5669628df72e3478c3edcd2e56e9dc8f" +
+            "&language=en-US&region=US")
+    suspend fun getMoviesNowPlaying(
+        @Query("page") page: Int
+    ): Response<NowPlayingMoviesDto>
+
 }

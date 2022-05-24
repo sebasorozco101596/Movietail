@@ -14,7 +14,8 @@
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
         android:layout_gravity="center"
-        app:navGraph="@navigation/movitail_nav" />
+        app:navGraph="@navigation/movitail_nav"
+        tools:layout="@layout/fragment_movies" />
 
     <com.google.android.material.bottomappbar.BottomAppBar
         android:id="@+id/bottom_appBar"

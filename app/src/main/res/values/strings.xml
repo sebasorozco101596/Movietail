@@ -26,4 +26,7 @@
     <string name="en">en</string>
     <string name="action">Action</string>
     <string name="genres">Genres</string>
+    <string name="now_in_cinema">Now in Cinema</string>
+    <string name="popular_movies">Popular movies</string>
+    <string name="right_page">Right Page</string>
 </resources>

@@ -8,21 +8,22 @@
     android:paddingEnd="8dp"
     android:paddingStart="8dp"
     android:background="#19000000"
+    android:layout_marginHorizontal="8dp"
     >
 
     <View
         android:id="@+id/view"
-        android:layout_width="110dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="16dp"
+        android:layout_width="100dp"
+        android:layout_height="130dp"
         android:layout_marginTop="12dp"
         android:background="@color/placeHolderColor"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
         android:id="@+id/view2"
-        android:layout_width="130dp"
+        android:layout_width="100dp"
         android:layout_height="10dp"
         android:layout_marginTop="16dp"
         android:background="@color/placeHolderColor"

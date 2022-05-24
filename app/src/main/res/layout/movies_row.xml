@@ -13,13 +13,15 @@
         android:layout_height="0dp"
         android:layout_marginStart="8dp"
         android:layout_weight="2"
-        app:cardBackgroundColor="#E4F8F8F8"
+        app:cardBackgroundColor="#00000000"
         app:cardCornerRadius="8dp"
         app:cardElevation="5dp"
+        android:outlineSpotShadowColor="#00EC1717"
         app:cardUseCompatPadding="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:targetApi="p">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -35,16 +37,16 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.5"
                 android:contentDescription="@string/movie_image"
-                android:padding="16dp"
-                android:scaleType="fitXY"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerInside"
                 android:src="@drawable/ic_movie" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="9"
-                android:orientation="vertical"
-                android:paddingBottom="16dp">
+                android:layout_marginTop="4dp"
+                android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/movieReleaseDate"
@@ -65,32 +67,33 @@
                     android:gravity="center"
                     android:maxLines="1"
                     android:paddingHorizontal="4dp"
-                    android:textColor="@color/purple_700"
-                    android:textSize="14sp"
-                    android:textStyle="bold|normal"
+                    android:textColor="#46086D"
+                    android:textSize="12sp"
+                    android:textStyle="normal"
                     tools:text="Sonic the Hedgehog Of the last empire" />
 
                 <com.google.android.material.divider.MaterialDivider
                     android:layout_width="match_parent"
                     android:layout_height="1dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
                     android:background="@color/purple_700" />
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
+                    >
 
                     <TextView
                         android:id="@+id/movieVoteAverage"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginStart="16dp"
-                        android:textColor="@color/purple_700"
+                        android:textColor="@color/black"
                         android:textSize="12sp"
-                        android:textStyle="bold|italic"
+                        android:textStyle="bold"
                         app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:text="7.5" />
 
                     <TextView
@@ -98,20 +101,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_marginEnd="16dp"
-                        android:layout_weight="1"
                         android:textAllCaps="true"
-                        android:textColor="@color/purple_700"
+                        android:textColor="@color/black"
                         android:textSize="12sp"
-                        android:textStyle="bold|italic"
+                        android:textStyle="bold"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:text="EN" />
-
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
-
-
         </LinearLayout>
-
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>

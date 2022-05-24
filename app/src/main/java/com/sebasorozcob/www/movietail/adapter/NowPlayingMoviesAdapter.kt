@@ -15,7 +15,7 @@ import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
 import com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragmentDirections
 import com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragmentDirections
 
-class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
+class NowPlayingMoviesAdapter: RecyclerView.Adapter<NowPlayingMoviesAdapter.MoviesViewHolder>(){
 
     private var moviesList = emptyList<Movie>()
 
@@ -26,8 +26,8 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
             } else {
                 IMAGE_BASE_URL + movie.mainImage
             }
-//"Release date: " +
-            val releaseDate =  movie.releaseDate
+
+            val releaseDate = movie.releaseDate
             val voteAverage = " " + movie.voteAverage.toString()
             val originalLanguage = " " + movie.originalLanguage
 

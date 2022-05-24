@@ -11,7 +11,7 @@
     android:paddingEnd="16dp">
 
     <com.facebook.shimmer.ShimmerFrameLayout
-        android:id="@+id/shimmerFrameLayout"
+        android:id="@+id/shimmerTrendingMovies"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
