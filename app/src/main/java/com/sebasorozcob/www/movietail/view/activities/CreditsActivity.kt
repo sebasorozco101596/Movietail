@@ -1,8 +1,11 @@
 package com.sebasorozcob.www.movietail.view.activities
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.MenuItem
+import android.view.View
 import androidx.activity.viewModels
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
@@ -26,6 +29,19 @@ class CreditsActivity : AppCompatActivity() {
     private val args by navArgs<CreditsActivityArgs>()
     private val creditsViewModel: CreditsViewModel by viewModels()
 
+    private lateinit var resultBundle: Bundle
+
+    override fun onCreateView(
+        parent: View?,
+        name: String,
+        context: Context,
+        attrs: AttributeSet
+    ): View? {
+        resultBundle = Bundle()
+        resultBundle.putParcelable(MOVIE_RESULT_KEY, args.movie)
+        return super.onCreateView(parent, name, context, attrs)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreditsBinding.inflate(layoutInflater)
@@ -46,9 +62,6 @@ class CreditsActivity : AppCompatActivity() {
         val titles = ArrayList<String>()
         titles.add("Overview")
         titles.add("Credits")
-
-        val resultBundle = Bundle()
-        resultBundle.putParcelable(MOVIE_RESULT_KEY, args.movie)
 
         val pagerAdapter = PagerAdapter(
             resultBundle,
@@ -75,6 +88,11 @@ class CreditsActivity : AppCompatActivity() {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        finish()
     }
 
 }

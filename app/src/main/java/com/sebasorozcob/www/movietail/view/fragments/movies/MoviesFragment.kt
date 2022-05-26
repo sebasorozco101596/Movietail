@@ -54,8 +54,8 @@ class MoviesFragment : Fragment() {
             lifecycleScope.launch {
                 showTrendingShimmerEffect()
                 showNowInCineShimmerEffect()
-                listMovies.clear()
-                listNowInCineMovies.clear()
+//                listMovies.clear()
+//                listNowInCineMovies.clear()
                 mainViewModel.restartPage()
                 nowInCineViewModel.restartPage()
                 delay(1300)
@@ -152,7 +152,6 @@ class MoviesFragment : Fragment() {
     }
 
     private fun swipeItem(toPosition: Int, recycler: Constants.Recyclers) {
-
         if (recycler == Constants.Recyclers.POPULAR) {
             binding.moviesRecyclerView.scrollToPosition(toPosition)
         } else if (recycler == Constants.Recyclers.NOW_CINE) {
@@ -162,7 +161,6 @@ class MoviesFragment : Fragment() {
     }
 
     private fun searchApiData() {
-        Log.d("SIZEE","CALLED")
         showTrendingShimmerEffect()
         mainViewModel.getMovies()
     }

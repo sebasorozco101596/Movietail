@@ -1,5 +1,9 @@
 package com.sebasorozcob.www.domain.common
 
+import android.content.pm.ApplicationInfo
+import android.content.pm.PackageManager
+import com.sebasorozcob.www.domain.BuildConfig
+
 object Constants {
 
     // Remote constants
@@ -9,6 +13,10 @@ object Constants {
     //const val DATABASE_NAME = "movietail_database"
 
     const val MOVIE_RESULT_KEY = "movieBundle"
+
+    const val API_KEY = BuildConfig.API_KEY
+
+
 
     enum class Recyclers{
         POPULAR,NOW_CINE

@@ -24,7 +24,7 @@ class NowPlayingMoviesViewModel @Inject constructor(
     private val _page = MutableLiveData<Int>()
 
     init {
-        _page.value = 2
+        _page.value = 1
     }
 
     fun getMovies() {
@@ -32,7 +32,6 @@ class NowPlayingMoviesViewModel @Inject constructor(
         getNowPlayingMoviesUseCase(_page.value!!).onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    //Log.println(Log.ASSERT,"DATA",result.data?.results.toString())
                     _state.value = NowPlayingMoviesState(movies = result.data)
                 }
                 is Resource.Error -> {

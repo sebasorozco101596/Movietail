@@ -68,10 +68,7 @@ class SearchMoviesFragment : Fragment() {
                 } else {
                     hideShimmerEffect()
                     binding.moviesRecyclerView.visibility = View.VISIBLE
-                    //Log.d("HERE","" + it.movies?.results!!)
                     it.movies?.let { movies -> moviesAdapter.setData(movies.results) }
-                    //moviesAdapter = MoviesAdapter(this, it.movies?.results!!)
-                    //binding.recyclerView.adapter = moviesAdapter
                 }
             }
         }

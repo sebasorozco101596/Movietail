@@ -9,6 +9,7 @@ import com.bumptech.glide.Glide
 import com.sebasorozcob.www.domain.common.Constants.IMAGE_BASE_URL
 import com.sebasorozcob.www.domain.model.Movie
 import com.sebasorozcob.www.domain.model.Movies
+import com.sebasorozcob.www.movietail.BuildConfig
 import com.sebasorozcob.www.movietail.R
 import com.sebasorozcob.www.movietail.databinding.MoviesRowBinding
 import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
@@ -21,6 +22,7 @@ class NowPlayingMoviesAdapter: RecyclerView.Adapter<NowPlayingMoviesAdapter.Movi
 
     class MoviesViewHolder(private val binding: MoviesRowBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(movie: Movie) {
+
             val imageURL = if (movie.mainImage != null) {
                 IMAGE_BASE_URL + movie.mainImage
             } else {
@@ -38,20 +40,15 @@ class NowPlayingMoviesAdapter: RecyclerView.Adapter<NowPlayingMoviesAdapter.Movi
 
             binding.movieReleaseDate.text = releaseDate
             binding.movieName.text = movie.title
-            //binding.movieOverview.text = movie.overview
             binding.movieVoteAverage.text = voteAverage
             binding.movieOriginalLanguage.text = originalLanguage
             binding.movieCardView.setOnClickListener {
-                //Toast.makeText(itemView.context,"touching" + movie.title,Toast.LENGTH_LONG).show()
 
                 try {
                     val action = MoviesFragmentDirections.actionMoviesFragmentToCreditsActivity(movie)
                     it.findNavController()
                         .navigate(action)
                 } catch (e: Exception) {
-                    it.findNavController()
-                        .navigate(R.id.action_searchMoviesFragment_to_creditsActivity)
-
                     val action = SearchMoviesFragmentDirections.actionSearchMoviesFragmentToCreditsActivity(movie)
                     it.findNavController()
                         .navigate(action)

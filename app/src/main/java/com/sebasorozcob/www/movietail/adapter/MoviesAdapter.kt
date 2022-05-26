@@ -12,6 +12,7 @@ import com.sebasorozcob.www.domain.model.Movies
 import com.sebasorozcob.www.movietail.R
 import com.sebasorozcob.www.movietail.databinding.MoviesRowBinding
 import com.sebasorozcob.www.movietail.util.MoviesDiffUtil
+import com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragment
 import com.sebasorozcob.www.movietail.view.fragments.movies.MoviesFragmentDirections
 import com.sebasorozcob.www.movietail.view.fragments.search.SearchMoviesFragmentDirections
 
@@ -26,7 +27,7 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
             } else {
                 IMAGE_BASE_URL + movie.mainImage
             }
-//"Release date: " +
+
             val releaseDate =  movie.releaseDate
             val voteAverage = " " + movie.voteAverage.toString()
             val originalLanguage = " " + movie.originalLanguage
@@ -38,20 +39,15 @@ class MoviesAdapter: RecyclerView.Adapter<MoviesAdapter.MoviesViewHolder>(){
 
             binding.movieReleaseDate.text = releaseDate
             binding.movieName.text = movie.title
-            //binding.movieOverview.text = movie.overview
             binding.movieVoteAverage.text = voteAverage
             binding.movieOriginalLanguage.text = originalLanguage
             binding.movieCardView.setOnClickListener {
-                //Toast.makeText(itemView.context,"touching" + movie.title,Toast.LENGTH_LONG).show()
 
                 try {
                     val action = MoviesFragmentDirections.actionMoviesFragmentToCreditsActivity(movie)
                     it.findNavController()
                         .navigate(action)
                 } catch (e: Exception) {
-                    it.findNavController()
-                        .navigate(R.id.action_searchMoviesFragment_to_creditsActivity)
-
                     val action = SearchMoviesFragmentDirections.actionSearchMoviesFragmentToCreditsActivity(movie)
                     it.findNavController()
                         .navigate(action)
